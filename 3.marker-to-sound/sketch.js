@@ -4,8 +4,10 @@ let osc;
 function setup() {
   p5beholder.prepare({});
   createCanvas(640, 480);
+
+  // create a Triangle Weave audio Oscilator
   osc = new p5.TriOsc(); // set frequency and type
-  osc.amp(0.0001);
+  osc.amp(0.0001); // set the initial amplitude very quiet
   osc.start();
 }
 
@@ -38,6 +40,7 @@ function draw() {
     }
   }
 
+  // silence oscilator when marker is not visible
   if(!oscilatorPresent) {
     osc.amp(0.0001);
   }
